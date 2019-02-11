@@ -1,3 +1,36 @@
 This is the non-script version that you can read while installing your arch instance.
 
-Either choose option 1 or 2 to boot the 64 bit or 32 bit instance based on the 
+Either choose option 1 or 2 to boot the 64 bit or 32 bit instance based on the architecture of your system’s cpu. After doing this the system will begin the temporary boot process that loads the live version and logs in as root.
+First check that you are connected to the internet by pinging google.
+	ping google.com
+Next you will partition the drive. Using fdisk -l you can list the current system’s disk partition. Look for the one located at /dev/sda where as /dev/loop* is going to be your mounted disk image. 
+Next type
+	cfdisk
+you will be prompted for either gpt, dos, sgi, or sun. In this case select dos.
+Now you can select the partition (labeled free space) and set the partition size to 10G, Primary, select bootable and write to save changes to disk.
+Next select the remaining free block and set the logical partition size to 1048M and repeat the previous steps excluding the bootable setting. Quit after writing all partitions to disk.
+Now use mkfs.ex4 /dev/sda1 to format the first partition and mkfs.ex4 /dev/sda3 for the next partition. Finally use mkswap /dev/sda2 to format sda2 to the swap partition.
+Next activate the swap partition with swapon /dev/sda2
+Next mount the primary partition with 
+	mount /dev/sda1 /mnt
+	mkdir /mnt/home
+	mount /dev/sda3 /mnt/home
+Next bootstrap the system with pacstrap /mnt base base-devel
+This will take a few minutes as the data packages synchronize
+Next create the fstab file with: genfstab /mnt>> /mnt/etc/fstab
+Change the system root to the arch linux installation directory with: arch-root /mnt/bin/bash
+Now configure the language settings with: nano /etc/locale.gen
+Find #en_US.UTF-8 UTF-8, delete the “#” to uncomment the line and ctrl + x and press y to save the language change.
+Next activate it using: locale-gen
+Then create the locale.conf file with: nano /etc/locale.conf and enter LANG=en_US.UTF-8 to add your language, press ctrl +x and y to save.
+Sync the zone information using: ls /usr/share/zoneinfo
+To select your zone type: ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
+Now set the hardware clock time: hwclock –systohc –utc
+Set the root password: passwd
+Enter the hostname: nano / etc/hostname
+Enable dhcpcd with: systemctl enable dhcpcd
+Which will start at the next boot and find an IP address for the host.
+Initiate the grub installer with: pacman -S grub os-prober -y
+Install the grub boot loader to the hard disk with: grub-install /dev/sda
+Configure the boot loader: grub-mkconfig -o /boot/grub/grub.cfg
+Finally exit and reboot
