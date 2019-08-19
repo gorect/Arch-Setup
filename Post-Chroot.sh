@@ -8,8 +8,13 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo "reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist"
 reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
 
-echo "sudo nano /etc/pacman.d/hooks/mirrorupgrade.hook"
-sudo nano /etc/pacman.d/hooks/mirrorupgrade.hook
+echo "mkdir /etc/pacman.d/hooks/"
+mkdir /etc/pacman.d/hooks/
+
+## This section needs to be finished: until then continue to Time Zome
+
+echo "touch /etc/pacman.d/hooks/mirrorupgrade.hook"
+touch /etc/pacman.d/hooks/mirrorupgrade.hook
 
 ## cd to Reflector-hook.sh to move the hook file to the proper dir
 
