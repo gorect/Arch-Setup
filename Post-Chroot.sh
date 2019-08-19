@@ -54,8 +54,9 @@ pacman -S grub --noconfirm
 echo "grub-install /dev/sda"
 grub-install /dev/sda
 echo "grub-mkconfig -o /boot/grub/grub.cfg"
+sleep 5
 grub-mkconfig -o /boot/grub/grub.cfg
-
+sleep 5
 exit
 
 #Finished Message!!!-----------------------------------------------------------------
