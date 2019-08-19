@@ -13,10 +13,15 @@ mkdir /etc/pacman.d/hooks/
 
 ## This section needs to be finished: until then continue to Time Zome
 
-echo "touch /etc/pacman.d/hooks/mirrorupgrade.hook"
-touch /etc/pacman.d/hooks/mirrorupgrade.hook
+##echo "touch /etc/pacman.d/hooks/mirrorupgrade.hook"
+##touch /etc/pacman.d/hooks/mirrorupgrade.hook
 
-## cd to Reflector-hook.sh to move the hook file to the proper dir
+## Reflector-hook.sh to move the hook file to the proper dir
+wget https://raw.githubusercontent.com/gorect/Arch-setup-guide/master/reflector-hook.sh
+mv reflector-hook.sh /etc/pacman.d/hooks/mirrorupgrade.hook
+echo "ls /etc/pacman.d/hooks/"
+ls /etc/pacman.d/hooks/
+sleep 5
 
 #Set Local Time Zone-----------------------------------------------------------------
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
