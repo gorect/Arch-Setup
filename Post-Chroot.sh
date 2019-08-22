@@ -11,6 +11,7 @@ reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
 echo "mkdir /etc/pacman.d/hooks/"
 mkdir /etc/pacman.d/hooks/
 
+sleep 5
 ## This section needs to be finished: until then continue to Time Zome
 
 ##echo "touch /etc/pacman.d/hooks/mirrorupgrade.hook"
