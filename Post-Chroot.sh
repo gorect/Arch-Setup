@@ -52,7 +52,7 @@ pacman -S sudo --noconfirm
 
 #Install VIM-------------------------------------------------------------------------
 echo "pacman-S vim"
-pacman-S vim
+pacman -S vim
 
 #Install the Boot Loader-------------------------------------------------------------
 echo "pacman -S grub"
@@ -63,7 +63,6 @@ echo "grub-mkconfig -o /boot/grub/grub.cfg"
 sleep 5
 grub-mkconfig -o /boot/grub/grub.cfg
 sleep 5
-exit
 
 #Finished Message!!!-----------------------------------------------------------------
 echo "The Arch Installation Script has completed!!! "
