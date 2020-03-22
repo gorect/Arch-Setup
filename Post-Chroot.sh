@@ -1,15 +1,15 @@
 #Reflector--------------------------------------------------------------------------
-echo "pacman -S reflector"
-pacman -S reflector --noconfirm
+#echo "pacman -S reflector"
+#pacman -S reflector --noconfirm
 
-echo "cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+#echo "cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
+#cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 
-echo "reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist"
-reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
+#echo "reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist"
+#reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
 
-echo "mkdir /etc/pacman.d/hooks/"
-mkdir /etc/pacman.d/hooks/
+#echo "mkdir /etc/pacman.d/hooks/"
+#mkdir /etc/pacman.d/hooks/
 
 sleep 5
 ## This section needs to be finished: until then continue to Time Zome
@@ -18,11 +18,11 @@ sleep 5
 ##touch /etc/pacman.d/hooks/mirrorupgrade.hook
 
 ## Reflector-hook.sh to move the hook file to the proper dir
-wget https://raw.githubusercontent.com/gorect/Arch-setup-guide/master/reflector-hook.sh
-mv reflector-hook.sh /etc/pacman.d/hooks/mirrorupgrade.hook
-echo "ls /etc/pacman.d/hooks/"
-ls /etc/pacman.d/hooks/
-sleep 5
+#wget https://raw.githubusercontent.com/gorect/Arch-setup-guide/master/reflector-hook.sh
+#mv reflector-hook.sh /etc/pacman.d/hooks/mirrorupgrade.hook
+#echo "ls /etc/pacman.d/hooks/"
+#ls /etc/pacman.d/hooks/
+#sleep 5
 
 #Set Local Time Zone-----------------------------------------------------------------
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
@@ -52,7 +52,7 @@ pacman -S sudo --noconfirm
 
 #Install VIM-------------------------------------------------------------------------
 echo "pacman-S vim"
-pacman -S vim
+pacman -S vim --noconfirm
 
 #Install the Boot Loader-------------------------------------------------------------
 echo "pacman -S grub"
@@ -68,11 +68,8 @@ sleep 5
 echo "The Arch Installation Script has completed!!! "
 echo "Before you reboot you should: "
 echo "       reset the Root Password"
-echo "       add users"
 echo "       use visudo to enable the wheel group"
-echo "       Eject to Installation media"
-echo " "
-echo "For now manually set the /etc/hosts file (hint 1270.0.1...)"
+echo "       Eject the Installation Media"
 echo " "
 echo "Then you my reboot the system and install any GUI that you wish to use."
 
