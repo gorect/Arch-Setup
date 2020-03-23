@@ -29,8 +29,8 @@ echo "::1			   localhost" >> /etc/hosts
 echo "127.0.1.1	 $hostnamevar.localdomain $hostnamevar" >> /etc/hosts
 
 ##Install DHCP Service---------------------------------------------------
-pacman -S dhcp --noconfirm
-pacman -S dhcpcd --noconfirm
+##pacman -S dhcp --noconfirm
+##pacman -S dhcpcd --noconfirm
 systemctl enable dhcpcd
 
 ##Install Sudo-----------------------------------------------------------
