@@ -9,7 +9,6 @@ echo ""
 echo "Please enter a new Root Password"
 read -sp 'Password: ' passwdvar
 echo "$passwdvar" | passwd --stdin root
-$passwdvar
 
 ##Reset /etc/resolv.conf------------Sometimes this does not survive------
 ##echo "nameserver 8.8.4.4" >> /etc/resolv.conf
