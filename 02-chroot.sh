@@ -37,7 +37,12 @@ systemctl enable dhcpcd
 pacman -S sudo --noconfirm
 
 ##Import sudoers File
-echo "wheel ALL=(ALL)" >> /etc/sudoers
+wget https://raw.github.com/gorect/Arch-setup-guide/master/sudoersFixed
+cp /etc/sudoers /etc/sudoers.backup
+mv sudoersFixed /etc/sudoers
+
+##Install VIM-----------------------------------------------------------
+pacman -S vim --noconfirm
 
 ##Install Grub-----------------------------------------------------------
 pacman -S grub --noconfirm
