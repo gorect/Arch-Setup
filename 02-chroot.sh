@@ -49,8 +49,4 @@ pacman -S grub --noconfirm
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
-##Install XORG and LightDM-----------------------------------------------
-pacman -S xorg --noconfirm
-pacman -S lightdm --noconfirm
-
-exit 
+exit
