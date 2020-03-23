@@ -11,6 +11,7 @@ echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
 ##Grab the completed pacman mirrorlist---------------------------------------------------
 wget https://raw.github.com/gorect/Arch-setup-guide/master/usMirrorlist
+mv usMirrorlist /etc/pacman.d/mirrorlist
 
 ##Pacstrap-------------------------------------------------------------------------------
 pacstrap /mnt base linux linux-firmware
