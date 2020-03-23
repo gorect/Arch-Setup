@@ -9,6 +9,6 @@ Example: https://raw.github.com/gorect/Arch-setup-guide/master/01-setup.sh
 ## Using Wget
 When using the bash 02-chroot.sh once you have entered chroot you will first need to downkoad and install wget as it is not included in the environment by default. 
 ```
-pacman -S wget
+pacman -S wget --noconfirm
 ```
 After that you will be able to wget the bash script and continue with the installation.
