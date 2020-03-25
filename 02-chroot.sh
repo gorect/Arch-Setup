@@ -8,7 +8,7 @@ echo ""
 ##Change Root Password---------------------------------------------------
 echo "Please enter a new Root Password"
 read -sp 'Password: ' passwdvar
-echo "$passwdvar" | passwd --stdin root
+##echo "$passwdvar" | passwd --stdin root
 
 ##Reset /etc/resolv.conf------------Sometimes this does not survive------
 ##echo "nameserver 8.8.4.4" >> /etc/resolv.conf
@@ -41,12 +41,17 @@ wget https://raw.github.com/gorect/Arch-setup-guide/master/sudoersFixed
 cp /etc/sudoers /etc/sudoers.backup
 mv sudoersFixed /etc/sudoers
 
-##Install VIM-----------------------------------------------------------
+##Install VIM------------------------------------------------------------
 pacman -S vim --noconfirm
 
 ##Install Grub-----------------------------------------------------------
 pacman -S grub --noconfirm
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+
+##Xorg-------------------------------------------------------------------
+pacman -S xorg
+
+echo "$passwdvar" | passwd --stdin root
 
 exit
