@@ -15,7 +15,7 @@ mount /dev/sda1 /mnt
 ##echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
 ##Grab the completed pacman mirrorlist---------------------------------------------------
-wget https://raw.github.com/gorect/Arch-setup-guide/master/usMirrorlist
+wget https://raw.github.com/gorect/Arch-Setup/master/usMirrorlist
 mv usMirrorlist /etc/pacman.d/mirrorlist
 
 ##Pacstrap-------------------------------------------------------------------------------
